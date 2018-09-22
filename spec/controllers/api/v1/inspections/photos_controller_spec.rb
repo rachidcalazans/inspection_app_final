@@ -20,8 +20,8 @@ module Api
               expect(response.status).to be == 201
 
               expected_response = {
-                'id'            => 11,
-                'inspection_id' => 1,
+                'id'            => 1,
+                'inspection_id' => inspection.id,
                 'photo_url'     => 'http://chid.com/inspection/photo_some_hash_64',
                 'caption'       => nil,
               }
