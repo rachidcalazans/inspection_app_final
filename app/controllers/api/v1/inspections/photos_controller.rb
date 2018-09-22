@@ -10,7 +10,12 @@ module Api
             .except(:photo_base_64)
             .to_h
 
-          presenter = Struct::InspectionPhotoPresenter.new(request_params)
+          inspection_photo = ::InspectionPhoto.create(request_params)
+
+          presenter_params = inspection_photo
+            .attributes
+            .except('created_at', 'updated_at')
+          presenter = Struct::InspectionPhotoPresenter.new(presenter_params)
 
           render json: presenter, status: 201
         end
