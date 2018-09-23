@@ -9,9 +9,7 @@ module UseCases
       end
 
       def call
-        inspection_photo = ::InspectionPhoto.create(inspection_photo_params)
-
-        ::Presenters::InspectionPhoto.new(inspection_photo)
+        ::InspectionPhoto.create(inspection_photo_params)
       end
 
       private
